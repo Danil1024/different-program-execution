@@ -9,11 +9,10 @@ from multiprocessing import Process
 
 urls = {
 		'youtube': 'https://www.youtube.com',
-        'yandex': 'https://ya.ru/',
+		'yandex': 'https://ya.ru/',
 		'google': 'https://google.com'
 		}
 
-# общее время выполнения 19-20 сек 
 def sync_funck(url, url_name):
     for _ in range(5):
         response = requests.get(url)
@@ -25,8 +24,7 @@ def sync_funck_run():
         sync_funck(url, url_name)
     return (datetime.now()-start)
  
- 
-# общее время выполнения 12 сек 
+
 def threading_funck(url, name_url): 
     print(f'поток {threading.get_ident()} начал работать!')
     for _ in range(5):
@@ -44,7 +42,6 @@ def threading_funck_run():
     return (datetime.now()-start)
  
 
-# общее время выполнения на числа (2,3,5) 17-18 сек 
 def process_funck(url, url_name): 
     print(f'процесс {os.getpid()} начал работать!')
     for _ in range(5):
